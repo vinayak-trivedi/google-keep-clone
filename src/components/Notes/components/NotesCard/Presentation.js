@@ -11,6 +11,7 @@ export default function NotesCardPresentation({
   noteId,
   color,
   openNoteDetailsModal,
+  openDeleteConfirmationModal
 }) {
   return (
     <div
@@ -32,7 +33,7 @@ export default function NotesCardPresentation({
         >
           <img src="/color_palette.png" width="100%" height="100%" />
         </button>
-        <button onClick={deleteNote} className={styles.delete_button}>
+        <button onClick={openDeleteConfirmationModal} className={styles.delete_button}>
           <img src="/delete_icon.svg" width="100%" height="100%" />
         </button>
       </div>

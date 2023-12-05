@@ -1,0 +1,32 @@
+.modal_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  padding: 5px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 95vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  gap: 20px;
+}
+
+.confirmation_text {
+  font-size: 22px;
+  font-weight: 550;
+}
+
+.delete_button {
+  font-size: 18px;
+  background: #f7f7f7;
+  border: none;
+  width: 40%;
+  margin-left: auto;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+}
