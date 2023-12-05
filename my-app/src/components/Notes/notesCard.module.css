@@ -1,0 +1,56 @@
+.note_items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: center;
+  
+}
+
+.notes_card {
+  width: 25%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  cursor: pointer;
+  min-width: 300px;
+}
+
+.delete_button {
+  visibility: hidden;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background: none;
+  cursor: pointer;
+  border: none;
+  right: 5px;
+  top: 5px;
+}
+
+.delete_button:hover {
+  scale: 1.1;
+}
+
+.notes_card:hover {
+  box-shadow: 0 0 3px 0 black;
+}
+
+.notes_card:hover .delete_button {
+  visibility: visible;
+}
+
+.notes_card__title {
+  color: black;
+  font-weight: 550;
+  font-size: 16px;
+}
+
+.notes_card__note {
+  color: black;
+  font-weight: 540;
+  font-size: 18px;
+  max-height: 20%;
+}

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 import { ACTIONS } from '../constants/actions';
 
 export const NotesContext = createContext();
@@ -53,12 +53,19 @@ const addNote = (state, note) => {
 const deleteNote = (state, noteId) => {
   const newState = { ...state };
   delete newState[noteId];
-
+  localStorage.setItem('notes_from_local', JSON.stringify(newState));
   return newState;
 };
 
 export const NotesContextProvider = (props) => {
   const [notesState, dispatch] = useReducer(reducer, {});
+
+  useEffect(() => {
+    dispatch({
+      type: ACTIONS.INITIALIZE_NOTES_STATE,
+    });
+  }, []);
+
   return (
     <NotesContext.Provider value={{ notesState, dispatch }}>
       {props.children}
@@ -69,7 +76,7 @@ export const NotesContextProvider = (props) => {
 export const useNotes = () => {
   const context = useNotesContext();
   const { notes } = context;
-  return notes;
+  return Object.values(notes);
 };
 
 export const useNotesContext = () => {

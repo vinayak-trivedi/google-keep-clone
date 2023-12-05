@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import useClickOutsideComponent from '../../hooks/customHooks';
 import styles from './notesInput.module.css';
 import NotesInputCollapsed from './NotesInputCollapsed';
 import NotesInputExpanded from './NotesInputExpanded';
@@ -33,6 +32,7 @@ export default function NotesInput() {
       id,
       title: titleRef.current.value,
       note: notesRef.current.value,
+      color: null,
     };
 
     notesDispatch({
