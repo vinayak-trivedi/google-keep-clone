@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function useClickOutsideComponent(
+export default function useClickOutsideComponent({
   initialIsVisible,
   ref,
   onClose = () => {},
-) {
+}) {
   const [isComponentVisible, setIsComponentVisible] =
     useState(initialIsVisible);
 

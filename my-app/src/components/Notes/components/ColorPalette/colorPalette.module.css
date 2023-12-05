@@ -1,0 +1,7 @@
+.color_palette {
+  position: absolute;
+  bottom: -30%;
+  width: 300px;
+  height: 40px;
+  background: red;
+}
