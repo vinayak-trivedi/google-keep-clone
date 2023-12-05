@@ -5,7 +5,7 @@ import NotesInputCollapsed from './NotesInputCollapsed';
 import NotesInputExpanded from './NotesInputExpanded';
 
 export default function NotesInput() {
-  const notesInputRef = useRef(null);
+  const notesInputRef = useRef();
   const titleRef = useRef(null);
   const notesRef = useRef(null);
   const { isComponentVisible, setIsComponentVisible } =
@@ -16,8 +16,8 @@ export default function NotesInput() {
     inputComponentToShow = (
       <NotesInputExpanded
         saveNotesAndCollapse={saveNotesAndCollapse}
-        titleValueRef={notesRef}
-        noteValueRef={notesInputRef}
+        titleValueRef={titleRef}
+        noteValueRef={notesRef}
       />
     );
   else inputComponentToShow = <NotesInputCollapsed />;
@@ -29,7 +29,7 @@ export default function NotesInput() {
   return (
     <div className={styles.input_container}>
       <div
-        onClick={setIsComponentVisible}
+        onClick={() => setIsComponentVisible(true)}
         ref={notesInputRef}
         className={styles.input_child_container}
       >
