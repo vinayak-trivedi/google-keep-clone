@@ -1,17 +1,21 @@
 import ColorPalette from '../ColorPalette';
 import styles from './notesCard.module.css';
 
-export default function NotesCardPresentation
-({
+export default function NotesCardPresentation({
   title,
   note,
   deleteNote,
   isColorPaletteVisible,
   setIsColorPaletteVisible,
   colorPaletteRef,
+  noteId,
+  color,
 }) {
   return (
-    <div className={styles.notes_card}>
+    <div
+      style={{ background: color ? color : '#fff' }}
+      className={styles.notes_card}
+    >
       <div className={styles.text_container}>
         <p className={styles.notes_card__title}>{title}</p>
         <p className={styles.notes_card__note}>{note}</p>
@@ -28,7 +32,7 @@ export default function NotesCardPresentation
         </button>
       </div>
       {isColorPaletteVisible && (
-        <ColorPalette colorPaletteRef={colorPaletteRef} />
+        <ColorPalette noteId={noteId} colorPaletteRef={colorPaletteRef} />
       )}
     </div>
   );

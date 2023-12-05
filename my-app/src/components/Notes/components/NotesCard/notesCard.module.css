@@ -53,6 +53,8 @@
   font-weight: 540;
   font-size: 18px;
   max-height: 20%;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
 }
 
 .color_select_button {

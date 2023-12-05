@@ -10,6 +10,7 @@ export default function NotesCard({ note }) {
   const { isComponentVisible, setIsComponentVisible } =
     useClickOutsideComponent({ initialIsVisible: false, ref: colorPaletteRef });
 
+    console.log(note, 'note')
   function deleteNote() {
     notesDispatch({
       type: ACTIONS.DELETE_NOTES,
@@ -20,6 +21,8 @@ export default function NotesCard({ note }) {
     <NotesCardPresentation
       title={note?.title}
       note={note?.note}
+      color={note?.color}
+      noteId={note?.id}
       deleteNote={deleteNote}
       isColorPaletteVisible={isComponentVisible}
       setIsColorPaletteVisible={setIsComponentVisible}

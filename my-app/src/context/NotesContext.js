@@ -32,13 +32,16 @@ const initializeNotesState = () => {
 };
 
 const updateNote = (state, noteId, payloadToUpdate) => {
-  return {
+  console.log(noteId, payloadToUpdate, 'hello');
+  const newState = {
     ...state,
     [noteId]: {
       ...state[noteId],
-      payloadToUpdate,
+      ...payloadToUpdate,
     },
   };
+  localStorage.setItem('notes_from_local', JSON.stringify(newState));
+  return newState;
 };
 
 const addNote = (state, note) => {

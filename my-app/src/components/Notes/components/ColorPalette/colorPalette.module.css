@@ -1,7 +1,18 @@
 .color_palette {
   position: absolute;
-  bottom: -30%;
-  width: 300px;
+  top: 105%;
   height: 40px;
-  background: red;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 0 3px 0 black;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.color_palette_item {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
 }
