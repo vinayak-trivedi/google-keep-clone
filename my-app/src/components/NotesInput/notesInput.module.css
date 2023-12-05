@@ -11,10 +11,6 @@
   flex-direction: column;
 }
 
-.input_child_container {
-  width: 100%;
-}
-
 .input_collapsed {
   width: 100%;
   height: 20px;

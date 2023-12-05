@@ -18,6 +18,9 @@ export default function NotesInputExpanded({
         className={styles.input_expanded__note_input}
         placeholder="Take a notes.."
       />
+      <button onClick={saveNotesAndCollapse} className={styles.close_button}>
+        Close
+      </button>
     </div>
   );
 }

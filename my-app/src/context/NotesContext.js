@@ -28,7 +28,7 @@ const initializeNotesState = () => {
     return { ...parsedNotes };
   }
 
-  return state;
+  return {};
 };
 
 const updateNote = (state, noteId, payloadToUpdate) => {
@@ -42,10 +42,12 @@ const updateNote = (state, noteId, payloadToUpdate) => {
 };
 
 const addNote = (state, note) => {
-  return {
+  const newState = {
     ...state,
     [note.id]: note,
   };
+  localStorage.setItem('notes_from_local', JSON.stringify(newState));
+  return newState;
 };
 
 const deleteNote = (state, noteId) => {

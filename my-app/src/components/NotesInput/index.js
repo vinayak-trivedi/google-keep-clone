@@ -3,16 +3,17 @@ import useClickOutsideComponent from '../../hooks/customHooks';
 import styles from './notesInput.module.css';
 import NotesInputCollapsed from './NotesInputCollapsed';
 import NotesInputExpanded from './NotesInputExpanded';
+import { useNotesContext } from '../../context/NotesContext';
+import { ACTIONS } from '../../constants/actions';
 
 export default function NotesInput() {
-  const notesInputRef = useRef();
-  const titleRef = useRef(null);
-  const notesRef = useRef(null);
-  const { isComponentVisible, setIsComponentVisible } =
-    useClickOutsideComponent(false, notesInputRef);
+  const titleRef = useRef();
+  const notesRef = useRef();
+  const { notesDispatch } = useNotesContext();
+  const [isNotesExpanded, setIsNotesExpanded] = useState(false);
   let inputComponentToShow;
 
-  if (isComponentVisible)
+  if (isNotesExpanded)
     inputComponentToShow = (
       <NotesInputExpanded
         saveNotesAndCollapse={saveNotesAndCollapse}
@@ -22,24 +23,30 @@ export default function NotesInput() {
     );
   else inputComponentToShow = <NotesInputCollapsed />;
 
-  function saveNotesAndCollapse() {
-    setIsComponentVisible(false);
+  function saveNotesAndCollapse(e) {
+    e.stopPropagation();
+    setIsNotesExpanded(false);
+    if (!notesRef.current.value && !titleRef.current.value) return;
+
+    const id = Math.floor(Date.now() / 1000);
+    const payload = {
+      id,
+      title: titleRef.current.value,
+      note: notesRef.current.value,
+    };
+
+    notesDispatch({
+      type: ACTIONS.ADD_NOTES,
+      payload: { note: payload },
+    });
   }
 
   return (
-    <div className={styles.input_container}>
-      <div
-        onClick={() => setIsComponentVisible(true)}
-        ref={notesInputRef}
-        className={styles.input_child_container}
-      >
-        {inputComponentToShow}
-      </div>
-      {isComponentVisible && (
-        <button onClick={saveNotesAndCollapse} className={styles.close_button}>
-          Close
-        </button>
-      )}
+    <div
+      onClick={() => setIsNotesExpanded(true)}
+      className={styles.input_container}
+    >
+      {inputComponentToShow}
     </div>
   );
 }
