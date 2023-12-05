@@ -10,6 +10,7 @@ export default function NotesCardPresentation({
   colorPaletteRef,
   noteId,
   color,
+  openNoteDetailsModal,
 }) {
   return (
     <div
@@ -18,6 +19,7 @@ export default function NotesCardPresentation({
         borderColor: color ? color : '#e0e0e0',
       }}
       className={styles.notes_card}
+      onClick={openNoteDetailsModal}
     >
       <div className={styles.text_container}>
         <p className={styles.notes_card__title}>{title}</p>

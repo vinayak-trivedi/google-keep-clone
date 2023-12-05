@@ -1,15 +1,28 @@
-import { useRef } from 'react';
-import { ACTIONS } from '../../constants/actions';
+import { useRef, useState } from 'react';
 import { useNotes, useNotesContext } from '../../context/NotesContext';
-import useClickOutsideComponent from '../../hooks/customHooks';
 import styles from './notes.module.css';
 import NotesCard from './components/NotesCard';
+import NotesDetailsModal from '../NoteDetailsModal';
 
-export default function Notes() {
+export default function Notes({}) {
   const notes = useNotes();
+  const [noteIdForNoteDetailsModal, setNoteIdForNoteDetailsModal] = useState(null);
   const notesItem = notes?.map((note) => (
-    <NotesCard note={note} key={note?.id} />
+    <NotesCard note={note} key={note?.id} openNoteDetailsModal={() => openNoteDetailsModal(note?.id)} />
   ));
 
-  return <div className={styles.note_items}>{notesItem}</div>;
+  function openNoteDetailsModal(noteId) {
+    setNoteIdForNoteDetailsModal(noteId)
+  }
+
+  function closeModal() {
+    setNoteIdForNoteDetailsModal(null)
+  }
+
+  return (
+    <>
+      <div className={styles.note_items}>{notesItem}</div>;
+      {noteIdForNoteDetailsModal && <NotesDetailsModal closeModal={closeModal} />}
+    </>
+  );
 }

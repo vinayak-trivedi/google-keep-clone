@@ -82,6 +82,13 @@ export const useNotes = () => {
   return Object.values(notes);
 };
 
+export const useGetNotesById = (noteId) => {
+  const context = useNotesContext();
+  if (noteId) return {};
+  const notes = Object.values(context.notes);
+  return notes?.[noteId];
+};
+
 export const useNotesContext = () => {
   const context = useContext(NotesContext);
   if (context === undefined) {

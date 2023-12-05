@@ -4,13 +4,12 @@ import useClickOutsideComponent from '../../../../hooks/customHooks';
 import NotesCardPresentation from './Presentation';
 import { ACTIONS } from '../../../../constants/actions';
 
-export default function NotesCard({ note }) {
+export default function NotesCard({ note, openNoteDetailsModal }) {
   const { notesDispatch } = useNotesContext();
   const colorPaletteRef = useRef();
   const { isComponentVisible, setIsComponentVisible } =
     useClickOutsideComponent({ initialIsVisible: false, ref: colorPaletteRef });
 
-    console.log(note, 'note')
   function deleteNote() {
     notesDispatch({
       type: ACTIONS.DELETE_NOTES,
@@ -27,6 +26,7 @@ export default function NotesCard({ note }) {
       isColorPaletteVisible={isComponentVisible}
       setIsColorPaletteVisible={setIsComponentVisible}
       colorPaletteRef={colorPaletteRef}
+      openNoteDetailsModal={openNoteDetailsModal}
     />
   );
 }
