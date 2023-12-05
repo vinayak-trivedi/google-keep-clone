@@ -40,18 +40,20 @@ const updateNote = (state, noteId, payloadToUpdate) => {
       ...payloadToUpdate,
     },
   };
-  console.log(newState,)
+  console.log(newState);
   localStorage.setItem('notes_from_local', JSON.stringify(newState));
   return newState;
 };
 
 const addNote = (state, note) => {
+  const currentNotesCount = Object.keys(state).length || 0;
   const newState = {
-    [note.id]: note,
+    [note.id]: {
+      ...note,
+      idx: currentNotesCount,
+    },
     ...state,
-    
   };
-  console.log(newState,'newstate')
   localStorage.setItem('notes_from_local', JSON.stringify(newState));
   return newState;
 };
@@ -82,14 +84,14 @@ export const NotesContextProvider = (props) => {
 export const useNotes = () => {
   const context = useNotesContext();
   const { notes } = context;
-  return Object.values(notes);
+  const sortedNotes = Object.values(notes).sort((a, b) => b.idx - a.idx);
+  return sortedNotes;
 };
 
 export const useGetNotesById = (noteId) => {
   const context = useNotesContext();
   if (!noteId) return {};
   const notes = context.notes;
-  console.log(notes, 'notesfsd');
   return notes?.[noteId];
 };
 
