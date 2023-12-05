@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import styles from './notesInput.module.css';
 import NotesInputCollapsed from './NotesInputCollapsed';
 import NotesInputExpanded from './NotesInputExpanded';
-import { useNotesContext } from '../../context/NotesContext';
 import { ACTIONS } from '../../constants/actions';
+import { useNotesContext } from '../../context/NotesContext';
 
 export default function NotesInput() {
   const titleRef = useRef();
