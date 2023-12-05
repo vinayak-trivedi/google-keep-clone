@@ -3,12 +3,13 @@
   padding: 10px 15px;
   padding-bottom: 0;
   border-radius: 15px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid;
   position: relative;
   cursor: pointer;
   min-width: 300px;
   display: flex;
   flex-direction: column;
+  transition: background 0.5s ease;
 }
 
 .note_actions {
@@ -35,7 +36,7 @@
 }
 
 .notes_card:hover {
-  box-shadow: 0 0 3px 0 black;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 .notes_card:hover .note_actions {

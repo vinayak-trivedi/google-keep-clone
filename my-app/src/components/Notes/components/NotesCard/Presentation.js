@@ -13,7 +13,10 @@ export default function NotesCardPresentation({
 }) {
   return (
     <div
-      style={{ background: color ? color : '#fff' }}
+      style={{
+        background: color ? color : '#fff',
+        borderColor: color ? color : '#e0e0e0',
+      }}
       className={styles.notes_card}
     >
       <div className={styles.text_container}>
