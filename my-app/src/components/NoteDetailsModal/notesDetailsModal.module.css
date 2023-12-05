@@ -9,14 +9,48 @@
 
 .modal_content {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fefefe;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  border-radius: 10px;
   width: 95vw;
-  max-width: 600px;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  gap: 10px;
+}
 
+.title_input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 24px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.note_input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  height: 100px;
+}
+
+.close_button {
+  background: none;
+  color: black;
+  width: fit-content;
+  margin-left: auto;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 550;
+  margin-left: auto;
 }

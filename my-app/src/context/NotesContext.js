@@ -84,8 +84,9 @@ export const useNotes = () => {
 
 export const useGetNotesById = (noteId) => {
   const context = useNotesContext();
-  if (noteId) return {};
-  const notes = Object.values(context.notes);
+  if (!noteId) return {};
+  const notes = context.notes;
+  console.log(notes, 'notesfsd')
   return notes?.[noteId];
 };
 

@@ -6,23 +6,34 @@ import NotesDetailsModal from '../NoteDetailsModal';
 
 export default function Notes({}) {
   const notes = useNotes();
-  const [noteIdForNoteDetailsModal, setNoteIdForNoteDetailsModal] = useState(null);
+  const [noteIdForNoteDetailsModal, setNoteIdForNoteDetailsModal] =
+    useState(null);
   const notesItem = notes?.map((note) => (
-    <NotesCard note={note} key={note?.id} openNoteDetailsModal={() => openNoteDetailsModal(note?.id)} />
+    <NotesCard
+      note={note}
+      key={note?.id}
+      openNoteDetailsModal={() => openNoteDetailsModal(note?.id)}
+    />
   ));
+  const note = notes?.[noteIdForNoteDetailsModal];
 
   function openNoteDetailsModal(noteId) {
-    setNoteIdForNoteDetailsModal(noteId)
+    setNoteIdForNoteDetailsModal(noteId);
   }
 
   function closeModal() {
-    setNoteIdForNoteDetailsModal(null)
+    setNoteIdForNoteDetailsModal(null);
   }
 
   return (
     <>
       <div className={styles.note_items}>{notesItem}</div>;
-      {noteIdForNoteDetailsModal && <NotesDetailsModal closeModal={closeModal} />}
+      {noteIdForNoteDetailsModal && (
+        <NotesDetailsModal
+          closeModal={closeModal}
+          noteId={noteIdForNoteDetailsModal}
+        />
+      )}
     </>
   );
 }
