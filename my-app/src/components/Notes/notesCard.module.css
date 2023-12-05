@@ -16,13 +16,20 @@
   position: relative;
   cursor: pointer;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note_actions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  visibility: hidden;
 }
 
 .delete_button {
-  visibility: hidden;
-  width: 35px;
-  height: 35px;
-  position: absolute;
+  width: 30px;
+  height: 20px;
   background: none;
   cursor: pointer;
   border: none;
@@ -38,7 +45,7 @@
   box-shadow: 0 0 3px 0 black;
 }
 
-.notes_card:hover .delete_button {
+.notes_card:hover .note_actions {
   visibility: visible;
 }
 
@@ -53,4 +60,16 @@
   font-weight: 540;
   font-size: 18px;
   max-height: 20%;
+}
+
+.color_select_button {
+  width: 30px;
+  height: 20px;
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.color_select_button:hover {
+  scale: 1.1;
 }
