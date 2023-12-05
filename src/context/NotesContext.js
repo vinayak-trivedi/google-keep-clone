@@ -47,9 +47,11 @@ const updateNote = (state, noteId, payloadToUpdate) => {
 
 const addNote = (state, note) => {
   const newState = {
-    ...state,
     [note.id]: note,
+    ...state,
+    
   };
+  console.log(newState,'newstate')
   localStorage.setItem('notes_from_local', JSON.stringify(newState));
   return newState;
 };
