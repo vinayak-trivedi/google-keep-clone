@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import NotesHeader from './components/NotesHeader';
 import NotesInput from './components/NotesInput';
