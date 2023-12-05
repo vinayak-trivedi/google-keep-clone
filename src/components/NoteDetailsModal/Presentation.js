@@ -1,3 +1,4 @@
+import Modal from '../Modal';
 import styles from './notesDetailsModal.module.css';
 
 export default function NotesDetailsModalPresentation({
@@ -7,7 +8,7 @@ export default function NotesDetailsModalPresentation({
   noteRef,
 }) {
   return (
-    <div onClick={closeModal} className={styles.modal}>
+    <Modal onClose={closeModal}>
       <div
         onClick={(e) => e.stopPropagation()}
         className={styles.modal_content}
@@ -25,13 +26,10 @@ export default function NotesDetailsModalPresentation({
           placeholder="Note"
           ref={noteRef}
         />
-        <button
-          onClick={closeModal}
-          className={styles.close_button}
-        >
+        <button onClick={closeModal} className={styles.close_button}>
           Close
         </button>
       </div>
-    </div>
+    </Modal>
   );
 }
