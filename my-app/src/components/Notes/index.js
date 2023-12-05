@@ -15,7 +15,6 @@ export default function Notes({}) {
       openNoteDetailsModal={() => openNoteDetailsModal(note?.id)}
     />
   ));
-  const note = notes?.[noteIdForNoteDetailsModal];
 
   function openNoteDetailsModal(noteId) {
     setNoteIdForNoteDetailsModal(noteId);

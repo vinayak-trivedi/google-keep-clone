@@ -27,7 +27,11 @@ export default function ColorPalette({ colorPaletteRef, noteId }) {
   }
 
   return (
-    <div ref={colorPaletteRef} className={styles.color_palette}>
+    <div
+      onClick={(e) => e.stopPropagation()}
+      ref={colorPaletteRef}
+      className={styles.color_palette}
+    >
       {colorPaletteItems}
     </div>
   );

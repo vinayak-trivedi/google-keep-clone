@@ -72,3 +72,9 @@
   cursor: pointer;
   font-weight: 550;
 }
+
+@media screen and (max-width: 768px) {
+  .input_container {
+    width: 90%;
+  }
+}

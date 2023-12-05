@@ -40,6 +40,7 @@ const updateNote = (state, noteId, payloadToUpdate) => {
       ...payloadToUpdate,
     },
   };
+  console.log(newState,)
   localStorage.setItem('notes_from_local', JSON.stringify(newState));
   return newState;
 };
@@ -86,7 +87,7 @@ export const useGetNotesById = (noteId) => {
   const context = useNotesContext();
   if (!noteId) return {};
   const notes = context.notes;
-  console.log(notes, 'notesfsd')
+  console.log(notes, 'notesfsd');
   return notes?.[noteId];
 };
 

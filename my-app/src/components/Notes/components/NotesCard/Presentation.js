@@ -6,7 +6,7 @@ export default function NotesCardPresentation({
   note,
   deleteNote,
   isColorPaletteVisible,
-  setIsColorPaletteVisible,
+  openColorPalette,
   colorPaletteRef,
   noteId,
   color,
@@ -27,7 +27,7 @@ export default function NotesCardPresentation({
       </div>
       <div className={styles.note_actions}>
         <button
-          onClick={() => setIsColorPaletteVisible(true)}
+          onClick={openColorPalette}
           className={styles.color_select_button}
         >
           <img src="/color_palette.png" width="100%" height="100%" />

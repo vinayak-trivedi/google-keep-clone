@@ -69,3 +69,10 @@
 .color_select_button:hover {
   scale: 1.1;
 }
+
+@media screen and (max-width: 768px) {
+  .notes_card {
+    width: 100%;
+    max-width: 100%;
+  }
+}

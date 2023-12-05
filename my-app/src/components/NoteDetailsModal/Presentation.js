@@ -23,9 +23,9 @@ export default function NotesDetailsModalPresentation({
           defaultValue={note.note}
           className={styles.note_input}
           placeholder="Note"
+          ref={noteRef}
         />
         <button
-          ref={noteRef}
           onClick={closeModal}
           className={styles.close_button}
         >
