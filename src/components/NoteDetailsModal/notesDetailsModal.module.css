@@ -22,12 +22,14 @@
   font-size: 24px;
   width: 100%;
   background-color: transparent;
+  width: 90%;
+  text-overflow: ellipsis;
 }
 
 .note_input {
   border: none;
   outline: none;
-  width: 100%;
+  width: 90%;
   padding: 10px;
   font-size: 16px;
   background-color: transparent;
@@ -44,4 +46,16 @@
   cursor: pointer;
   font-weight: 550;
   margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .modal_content {
+    max-width: 90%;
+    top: 50%;
+  }
+
+
+  .note_input {
+    height: 150px;
+  }
 }
