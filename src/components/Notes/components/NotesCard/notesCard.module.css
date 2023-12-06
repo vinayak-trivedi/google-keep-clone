@@ -72,8 +72,8 @@
 
 @media screen and (max-width: 768px) {
   .notes_card {
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    max-width: 90%;
     min-width: none;
   }
 

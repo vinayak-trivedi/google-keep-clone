@@ -81,10 +81,20 @@ export const NotesContextProvider = (props) => {
   );
 };
 
-export const useNotes = () => {
+export const useNotes = (searchQuery) => {
   const context = useNotesContext();
   const { notes } = context;
   const sortedNotes = Object.values(notes).sort((a, b) => b.idx - a.idx);
+
+  if (searchQuery) {
+    const searchQueryLowerCase = searchQuery?.toLowerCase();
+    const filteredNotes = sortedNotes.filter(
+      (note) =>
+        note.title.toLowerCase().includes(searchQueryLowerCase) ||
+        note.note.toLowerCase().includes(searchQueryLowerCase)
+    );
+    return filteredNotes;
+  }
   return sortedNotes;
 };
 

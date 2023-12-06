@@ -1,12 +1,14 @@
-import { useRef, useState } from 'react';
-import { useNotes, useNotesContext } from '../../context/NotesContext';
+import { useState } from 'react';
+import { useNotes } from '../../context/NotesContext';
 import styles from './notes.module.css';
 import NotesCard from './components/NotesCard';
 import NotesDetailsModal from '../NoteDetailsModal';
 import ConfirmDeleteModal from '../ConfirmDeleteModal';
+import SearchComponent from '../SearchComponent';
 
 export default function Notes({}) {
-  const notes = useNotes();
+  const [searchQuery, setSearchQuery] = useState('');
+  const notes = useNotes(searchQuery);
   const [noteIdForNoteDetailsModal, setNoteIdForNoteDetailsModal] =
     useState(null);
   const [noteIdForDeleteModal, setNoteIdForDeleteModal] = useState(null);
@@ -38,6 +40,7 @@ export default function Notes({}) {
 
   return (
     <>
+      <SearchComponent value={searchQuery} setValue={setSearchQuery} />
       <div className={styles.note_items}>{notesItem}</div>;
       {noteIdForNoteDetailsModal && (
         <NotesDetailsModal

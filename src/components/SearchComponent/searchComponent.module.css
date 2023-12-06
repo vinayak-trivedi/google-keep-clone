@@ -1,0 +1,20 @@
+.search_input {
+  width: 100%;
+  padding: 10px;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 0 3px 0 black;
+  border: 1px solid #e0e0e0;
+  height: fit-content;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .search_input {
+    width: 90%;
+  }
+}
