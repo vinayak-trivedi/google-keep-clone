@@ -27,7 +27,7 @@ export default function NotesInput() {
     setIsNotesExpanded(false);
     if (!notesRef.current.value && !titleRef.current.value) return;
 
-    const id = Math.floor(Date.now() / 1000);
+    const id = Math.floor(Date.now() / 1000) * Math.floor(Math.random() * 1000);
     const payload = {
       id,
       title: titleRef.current.value,
