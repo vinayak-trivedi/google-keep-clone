@@ -5,6 +5,7 @@ import NotesCard from './components/NotesCard';
 import NotesDetailsModal from '../NoteDetailsModal';
 import ConfirmDeleteModal from '../ConfirmDeleteModal';
 import SearchComponent from '../SearchComponent';
+import NotesEmpty from './components/NotesEmpty';
 
 export default function Notes({}) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,14 +13,17 @@ export default function Notes({}) {
   const [noteIdForNoteDetailsModal, setNoteIdForNoteDetailsModal] =
     useState(null);
   const [noteIdForDeleteModal, setNoteIdForDeleteModal] = useState(null);
-  const notesItem = notes?.map((note) => (
-    <NotesCard
-      note={note}
-      key={note?.id}
-      openNoteDetailsModal={() => openNoteDetailsModal(note?.id)}
-      openDeleteConfirmationModal={(e) => openDeleteNotesModal(note?.id, e)}
-    />
-  ));
+  let notesItem;
+  if (notes.length) {
+    notesItem = notes?.map((note) => (
+      <NotesCard
+        note={note}
+        key={note?.id}
+        openNoteDetailsModal={() => openNoteDetailsModal(note?.id)}
+        openDeleteConfirmationModal={(e) => openDeleteNotesModal(note?.id, e)}
+      />
+    ));
+  } else notesItem = <NotesEmpty />;
 
   function openNoteDetailsModal(noteId) {
     setNoteIdForNoteDetailsModal(noteId);
