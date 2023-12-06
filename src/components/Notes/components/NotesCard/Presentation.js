@@ -4,20 +4,19 @@ import styles from './notesCard.module.css';
 export default function NotesCardPresentation({
   title,
   note,
-  deleteNote,
   isColorPaletteVisible,
   openColorPalette,
   colorPaletteRef,
   noteId,
   color,
   openNoteDetailsModal,
-  openDeleteConfirmationModal
+  openDeleteConfirmationModal,
 }) {
   return (
     <div
       style={{
-        background: color ? color : '#fff',
-        borderColor: color ? color : '#e0e0e0',
+        background: color || '#fff',
+        borderColor: color || '#e0e0e0',
       }}
       className={styles.notes_card}
       onClick={openNoteDetailsModal}
@@ -33,7 +32,10 @@ export default function NotesCardPresentation({
         >
           <img src="/color_palette.png" width="100%" height="100%" />
         </button>
-        <button onClick={openDeleteConfirmationModal} className={styles.delete_button}>
+        <button
+          onClick={openDeleteConfirmationModal}
+          className={styles.delete_button}
+        >
           <img src="/delete_icon.svg" width="100%" height="100%" />
         </button>
       </div>

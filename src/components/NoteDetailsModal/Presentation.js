@@ -12,7 +12,7 @@ export default function NotesDetailsModalPresentation({
       <div
         onClick={(e) => e.stopPropagation()}
         className={styles.modal_content}
-        style={{ background: note?.color ? note?.color : '#fff' }}
+        style={{ background: note?.color || '#fff' }}
       >
         <input
           ref={titleRef}

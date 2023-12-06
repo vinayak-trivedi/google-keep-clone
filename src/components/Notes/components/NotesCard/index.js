@@ -1,11 +1,8 @@
 import { useRef } from 'react';
-import { useNotesContext } from '../../../../context/NotesContext';
 import useClickOutsideComponent from '../../../../hooks/customHooks';
 import NotesCardPresentation from './Presentation';
-import { ACTIONS } from '../../../../constants/actions';
 
 export default function NotesCard({ note, openNoteDetailsModal, openDeleteConfirmationModal }) {
-  const { notesDispatch } = useNotesContext();
   const colorPaletteRef = useRef();
   const { isComponentVisible, setIsComponentVisible } =
     useClickOutsideComponent({ initialIsVisible: false, ref: colorPaletteRef });
